@@ -1,7 +1,19 @@
-import express, {Express, Request, Response} from 'express';
-import {json} from 'body-parser';
-import {createOneSql, deleteOneSql, getAllSql, getOneSql, updateOneSql} from './routers/user.sql.router';
-import {createOneNoSql, deleteOneNoSql, getAllNoSql, getOneNoSql, updateOneNoSql} from './routers/user.nosql.router';
+import express, { Express, Request, Response } from 'express';
+import { json } from 'body-parser';
+import {
+	createOneSql,
+	deleteOneSql,
+	getAllSql,
+	getOneSql,
+	updateOneSql,
+} from './routers/user.sql.router';
+import {
+	createOneNoSql,
+	deleteOneNoSql,
+	getAllNoSql,
+	getOneNoSql,
+	updateOneNoSql,
+} from './routers/user.nosql.router';
 import { initNoSqlDatabase } from './database/nosql';
 import sequelizeSql from './database/sql';
 
@@ -13,12 +25,12 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.get("/", (req: Request, res: Response) => {
-	res.status(200).send("hello world!");
+app.get('/', (req: Request, res: Response) => {
+	res.status(200).send('hello world!');
 });
 
-app.get("/ping", (req: Request, res: Response) => {
-	res.status(200).send("pong");
+app.get('/ping', (req: Request, res: Response) => {
+	res.status(200).send('pong');
 });
 
 app.get('/sql/users', parser, getAllSql);
@@ -38,10 +50,9 @@ const start = async () => {
 		await sequelizeSql.sync(
 			{ force: false } // Reset db every time
 		);
-		console.log(`⚡️[DATABASE]: SQL database is running`);
+		console.log('⚡️[DATABASE]: SQL database is running');
 
-		initNoSqlDatabase()
-			.then(() => console.log(`⚡️[DATABASE]: NoSQL database is running`));
+		initNoSqlDatabase().then(() => console.log('⚡️[DATABASE]: NoSQL database is running'));
 
 		app.listen(port);
 		console.log(`⚡️[server]: Server is running on port ${port}`);
