@@ -16,18 +16,18 @@ Else you can :
 I put database type (sql / nosql) in uri to be able to test it quickly. 
 
 ### SQL
-Get all users (GET) : `/sql/users`
-Get a specific user (GET) : `/sql/users/:id`
-Create a user (POST) : `/sql/users`
-Modify a user (PUT) : `/sql/users/:id`
-Delete a user (DELETE): `/sql/users/:id`
+Get all users (GET) : `/sql/users`  
+Get a specific user (GET) : `/sql/users/:id`  
+Create a user (POST) : `/sql/users`  
+Modify a user (PUT) : `/sql/users/:id`  
+Delete a user (DELETE): `/sql/users/:id`  
 
 ### NoSQL
-Get all users (GET) : `/nosql/users`
-Get a specific user (GET) : `/nosql/users/:id`
-Create a user (POST) : `/nosql/users`
-Modify a user (PUT) : `/nosql/users/:id`
-Delete a user (DELETE) : `/nosql/users/:id`
+Get all users (GET) : `/nosql/users`  
+Get a specific user (GET) : `/nosql/users/:id`  
+Create a user (POST) : `/nosql/users`  
+Modify a user (PUT) : `/nosql/users/:id`  
+Delete a user (DELETE) : `/nosql/users/:id`  
 
 ### User object
 
@@ -40,6 +40,6 @@ export interface User {
 }
 ```
 
-### Postman collection
+## Postman collection
 
 [Postman collection](./sql_vs_nosql.postman.json) to test it easily. (v2.1)
