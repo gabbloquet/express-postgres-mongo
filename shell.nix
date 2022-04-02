@@ -5,8 +5,6 @@ in with nixpkgs;
 
 mkShell {
   PORT = "3000";
-  PGDATABASE = "postgres";
-  PGUSER = "postgresuser";
-  PGPASSWORD = "postgrespass";
-  PGHOST = "db";
+  SQL_DATABASE_URL = "postgres://postgresuser:postgrespass@127.0.0.1:5432/postgres";
+  NOSQL_DATABASE_URL = "postgres://postgresuser:postgrespass@127.0.0.1:5432/postgres";
 }

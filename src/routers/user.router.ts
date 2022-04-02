@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import User from '../database/sql/models'
 
-export async function createOne(req:Request, res:Response, next:NextFunction) {
+export async function createOne(req:Request, res:Response) {
   console.log('createOne: [POST] /users/')
   try {
     const USER_MODEL = {
@@ -24,7 +24,7 @@ export async function createOne(req:Request, res:Response, next:NextFunction) {
 }
 
 
-export async function getAll(req:Request, res:Response, next:NextFunction) {
+export async function getAll(req:Request, res:Response) {
   console.log('getAll: [GET] /users/')
   try {
     const ALL = await User.findAll()
@@ -40,7 +40,7 @@ export async function getAll(req:Request, res:Response, next:NextFunction) {
 }
 
 
-export async function getOne(req:Request, res:Response, next:NextFunction) {
+export async function getOne(req:Request, res:Response) {
   console.log('getOne: [GET] /users/:id')
   try {
     const u = await User.findByPk(req.params.id)
@@ -53,7 +53,7 @@ export async function getOne(req:Request, res:Response, next:NextFunction) {
 }
 
 
-export async function updateOne(req:Request, res:Response, next:NextFunction) {
+export async function updateOne(req:Request, res:Response) {
   console.log('updateOne: [PUT] /users/:id')
   try {
     const USER_MODEL = {
@@ -76,7 +76,7 @@ export async function updateOne(req:Request, res:Response, next:NextFunction) {
 }
 
 
-export async function deleteOne (req:Request, res:Response, next:NextFunction) {
+export async function deleteOne (req:Request, res:Response) {
   console.log('[DELETE] /users/:id')
   try {
     const u = await User.destroy({ where: { id: req.params.id } })

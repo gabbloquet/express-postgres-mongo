@@ -13,7 +13,6 @@ services:
       - POSTGRES_USER=postgresuser
       - POSTGRES_PASSWORD=postgrespass
       - POSTGRES_DB=postgres
-#      - PGDATA=/var/lib/postgresql/data/config/
     volumes:
       - sql-data:/var/lib/postgresql/data
   nosql:
@@ -38,10 +37,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - PGDATABASE=postgres
-      - PGUSER=postgresuser
-      - PGPASSWORD=postgrespass
-      - PGHOST=db
+      - PORT=3000
+      - SQL_DATABASE_URL=postgres://postgresuser:postgrespass@127.0.0.1:5432/postgres
     depends_on:
       sql:
         condition: service_healthy
