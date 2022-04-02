@@ -39,3 +39,7 @@ export interface User {
   password: String;
 }
 ```
+
+### Postman collection
+
+[Postman collection](./sql_vs_nosql.postman.json) to test it easily. (v2.1)
