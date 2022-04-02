@@ -1,0 +1,18 @@
+{
+  "name": "express-postgres-mongo",
+  "version": "1.0.0",
+  "description": "NodeJS Server using express which consume mongo & postgres",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "server",
+    "node",
+    "express",
+    "postgres",
+    "mongo"
+  ],
+  "author": "BLOQUET Gabin",
+  "license": "ISC"
+}
