@@ -4,7 +4,8 @@
   "description": "NodeJS Server using express which consume mongo & postgres",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src/ -d lib/ --copy-files",
+    "watch": "babel --watch src/ -d lib/ --copy-files"
   },
   "keywords": [
     "server",
@@ -14,5 +15,9 @@
     "mongo"
   ],
   "author": "BLOQUET Gabin",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8"
+  }
 }
