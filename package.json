@@ -4,9 +4,9 @@
   "description": "NodeJS Server using express which consume mongo & postgres",
   "main": "index.js",
   "scripts": {
-    "build": "babel src/ -d lib/ --copy-files",
-    "watch": "babel --watch src/ -d lib/ --copy-files",
-    "start": "node ./lib/app"
+    "build": "babel src/ -d dist/ --copy-files",
+    "watch": "babel --watch src/ -d dist/ --copy-files",
+    "start": "nodemon ./dist/app"
   },
   "keywords": [
     "server",
@@ -19,7 +19,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.8"
+    "@babel/core": "^7.17.8",
+    "nodemon": "^2.0.15"
   },
   "dependencies": {
     "express": "^4.17.3"
