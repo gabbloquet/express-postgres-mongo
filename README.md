@@ -48,6 +48,7 @@ export interface User {
 - I Used [Nodemon](https://www.npmjs.com/package/nodemon) for server hot reloading
 - I used [Sequelize](https://sequelize.org/docs/v6/getting-started/) as ORM for Postgres
 - I used [Mongoose](https://mongoosejs.com/docs/guide.html) as ODM for MongoDB
+- I used [linters](https://blog.bitsrc.io/how-to-set-up-node-js-application-with-eslint-and-prettier-b1b7994db69f), ESLint & Prettier.
 
 ## Postman collection
 
