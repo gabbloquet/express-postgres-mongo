@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc --build --verbose",
+    "serve": "nodemon -q dist/index.js",
     "watch": "npx tsc --watch",
-    "dev": "concurrently \"npm run watch\" \"nodemon -q dist/index.js\""
+    "dev": "concurrently \"npm run watch\" \"npm run serve\""
   },
   "keywords": [
     "server",
