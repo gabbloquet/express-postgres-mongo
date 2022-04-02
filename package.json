@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src/ -d lib/ --copy-files",
-    "watch": "babel --watch src/ -d lib/ --copy-files"
+    "watch": "babel --watch src/ -d lib/ --copy-files",
+    "start": "node ./lib/app"
   },
   "keywords": [
     "server",
@@ -19,5 +20,8 @@
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
   }
 }
