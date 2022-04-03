@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import mongoose, { Schema } from 'mongoose';
 
 export interface User {
   id: number;
@@ -9,10 +8,20 @@ export interface User {
 }
 
 const userSchema = new Schema({
-	id: Number,
-	username: String,
-	email: String,
+	id: {
+		type: Number,
+		index: true,
+		unique: true
+	},
+	username: {
+		type: String,
+		unique: true
+	},
+	email: {
+		type: String,
+		unique: true
+	},
 	password: String,
-});
+}, { autoIndex: false });
 
 export const UserModel = mongoose.model('User', userSchema);
