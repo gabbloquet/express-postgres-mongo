@@ -58,7 +58,7 @@ router.put('/:id', (req: Request, res: Response) => {
 			return res.status(200).json(user);
 		})
 		.catch(error => {
-			console.log('ERROR in updateOne ' + 'USER:', error);
+			console.log('[SQL] Impossible to update user ', error);
 			return res.status(500).json(error);
 		});
 });
@@ -70,7 +70,7 @@ router.delete('/:id', (req: Request, res: Response) => {
 			return res.status(204).end();
 		})
 		.catch(error => {
-			console.log('ERROR in deleteOne ' + 'USER:', error);
+			console.log('[SQL] Impossible to delete user ', error);
 			return res.status(500).json(error);
 		});
 });

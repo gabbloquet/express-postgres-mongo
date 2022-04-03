@@ -1,86 +1,79 @@
-import { Request, Response } from 'express';
+import {Request, Response, Router} from 'express';
 import { User, UserModel } from '../database/nosql/models';
 
-export async function createOneNoSql(req: Request, res: Response) {
-	console.log('createOne: [POST] /users/');
+const router = Router();
 
-	const USER_MODEL = {
-		id: req.body.id,
+router.post('/', (req: Request, res: Response) => {
+	const userToCreate = {
 		username: req.body.username,
 		email: req.body.email,
 		password: req.body.password,
 	};
 
-	new UserModel(USER_MODEL)
+	new UserModel(userToCreate)
 		.save()
 		.then((user: User) => {
-			console.log('OK createOne USER: ', user);
+			console.log('[NoSQL] User created : ', user);
 			return res.status(201).json(user);
 		})
 		.catch((error: any) => {
-			console.error('ERROR in createOne ' + 'USER:', error);
+			console.log('[NoSQL] User creation failed ', error);
 			return res.status(500).json(error);
 		});
-}
+});
 
-export async function getAllNoSql(req: Request, res: Response) {
-	console.log('getAll: [GET] /users/');
-
+router.get('/', (req: Request, res: Response) => {
 	UserModel.find({})
-		.then((users: Array<User>) => {
-			console.log('OK getAll USER: ', users);
+		.then(users => {
+			console.log('[NoSQL] All Users : ', users);
 			return res.status(200).json(users);
 		})
 		.catch((error) => {
-			console.error('ERROR in getAll ' + 'USER:', error);
+			console.log('[NoSQL] Get all users failed :', error);
 			return res.status(500).json(error);
 		});
-}
+});
 
-export async function getOneNoSql(req: Request, res: Response) {
-	console.log('getOne: [GET] /users/:id');
-
+router.get('/:id', (req: Request, res: Response) => {
 	UserModel.find({ id: req.params.id })
-		.then((user) => {
-			console.error('OK getOne USER: ', user);
+		.then(user => {
+			console.log('[NoSQL] Get user : ', user);
 			return res.status(200).json(user);
 		})
-		.catch((error) => {
-			console.log('ERROR in getOne ' + 'USER:', error);
+		.catch(error => {
+			console.log('[NoSQL] Impossible to get User : ', error);
 			return res.status(500).json(error);
 		});
-}
+});
 
-export async function updateOneNoSql(req: Request, res: Response) {
-	console.log('updateOne: [PUT] /users/:id');
-
-	const USER_MODEL = {
+router.put('/:id', (req: Request, res: Response) => {
+	const userToUpdate = {
 		username: req.body.username,
 		email: req.body.email,
 		password: req.body.password,
 	};
 
-	UserModel.updateOne({ id: req.params.id }, USER_MODEL)
-		.then((user) => {
-			console.error('OK updateOne USER: ', user);
+	UserModel.updateOne({ id: req.params.id }, userToUpdate)
+		.then(user => {
+			console.log('[NoSQL] update USER: ', user);
 			return res.status(200).json(user);
 		})
-		.catch((error) => {
-			console.log('ERROR in updateOne ' + 'USER:', error);
+		.catch(error => {
+			console.log('[NoSQL] Impossible to update user ', error);
 			return res.status(500).json(error);
 		});
-}
+});
 
-export async function deleteOneNoSql(req: Request, res: Response) {
-	console.log('[DELETE] /users/:id');
-
+router.delete('/:id', (req: Request, res: Response) => {
 	UserModel.deleteOne({ id: req.params.id })
 		.then(() => {
-			console.log('OK deleteOne USER: ');
+			console.log('[NoSQL] Delete user done');
 			return res.status(204).end();
 		})
-		.catch((error) => {
-			console.error('ERROR in deleteOne ' + 'USER:', error);
+		.catch(error => {
+			console.log('[NoSQL] Impossible to delete user ', error);
 			return res.status(500).json(error);
 		});
-}
+});
+
+export default router;
