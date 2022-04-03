@@ -1,4 +1,4 @@
-# express-postgres-mongo
+# Nods.js - Express - MongoDB & Postgres
 
 NodeJS Server using express which consume MongoDB & Postgres.
 
