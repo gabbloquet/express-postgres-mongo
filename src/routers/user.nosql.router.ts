@@ -1,4 +1,4 @@
-import {Request, Response, Router} from 'express';
+import { Request, Response, Router } from 'express';
 import { User, UserModel } from '../database/nosql/models';
 
 const router = Router();

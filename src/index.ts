@@ -1,6 +1,6 @@
 import express from 'express';
-import mountAPIRoutes from './routers';
-import {initNoSqlDatabase} from './database/nosql';
+import mountRoutes from './routers';
+import { initNoSqlDatabase } from './database/nosql';
 import sequelizeSql from './database/sql';
 
 import dotenv from 'dotenv';
@@ -17,7 +17,7 @@ server.disable('x-powered-by');
 server.use(express.static('dist'));
 server.use(express.json());
 
-mountAPIRoutes(server);
+mountRoutes(server);
 
 sequelizeSql.sync({ force: false })
 	.then(() => console.log('⚡️[DATABASE]: SQL database is running'))

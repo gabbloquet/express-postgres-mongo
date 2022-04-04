@@ -1,4 +1,4 @@
-import {Request, Response, Router} from 'express';
+import { Request, Response, Router } from 'express';
 import User from '../database/sql/models';
 
 const router = Router();
